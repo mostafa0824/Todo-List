@@ -45,7 +45,7 @@ const textColor=(id)=>{
       <button className='bg-red-500 hover:bg-red-800 transition-all duration-300 w-15 h-15 rounded-lg cursor-pointer text-white' onClick={resetEl}>reaet</button>
    </form>
    {items.map((e)=>(
-  <div key={e.id} className={`todo flex justify-around items-center gap-[50px] w-[40%] py-2 rounded-lg hover:scale-[1.02] transition-scale duration-[.5s,.5s] ease-in-out ${e.bgChange ? 'bg-blue-500' : 'bg-emerald-800'}`}>
+  <div key={e.id} className={`todo flex justify-around items-center gap-[50px] w-[40%] py-2 rounded-lg hover:scale-[1.02] transition-scale duration-[.3s,.3s] ease-in-out ${e.bgChange ? 'bg-blue-500' : 'bg-emerald-800'}`}>
     <div className={`flex gap-2 w-100 text-[20px] ${e.textChange ? 'text-black' : 'text-white'}`}>
         {e.txt} {e.name} {e.message}
     </div>
