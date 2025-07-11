@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-export default function Input() {
+export default function Todo() {
     const [values, setValues]=useState('')
     const [items, setItems]=useState([])
 
