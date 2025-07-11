@@ -1,10 +1,10 @@
 import React from 'react'
-import Input from './components/Input'
+import Todo from './components/Todo'
 export default function App() {
  
   return (
     <>
-    <Input/>
+    <Todo/>
     </>
   )
 }

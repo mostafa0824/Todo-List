@@ -31,11 +31,10 @@ const bgColor=(id)=>{
   )
 }
 const textColor=(id)=>{
-  setItems(prev=>
-    prev?.map(e=>
-      e.id===id?{...e,textChange:!e.textChange}:e
-    )
-    )
+  const newItems=items?.map((e=>(
+    e.id===id?{...e,textChange:!e.textChange}:e
+  )))
+  setItems(newItems)
 }
 
   return (
