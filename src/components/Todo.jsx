@@ -4,6 +4,7 @@ export default function Todo() {
     const [values, setValues]=useState('')
     const [items, setItems]=useState([])
 
+// submit
     const handleSubmit=(e)=>{
         e.preventDefault()
     if(values.trim()){
@@ -15,17 +16,18 @@ export default function Todo() {
         bgChange:false,
         textChange:false
       }
-      setItems(prev=>[...prev, newItem])
+      setItems(items=>[...items, newItem])
       setValues('')
         }
     }
+// reset
     const resetEl = () => {
   setItems([])
 };
 
 const bgColor=(id)=>{
-  setItems(prev=>
-    prev?.map(e=>
+  setItems(items=>
+    items?.map(e=>
       e.id===id?{...e,bgChange:!e.bgChange}:e
     )
   )
@@ -44,14 +46,15 @@ const textColor=(id)=>{
       <button disabled={!values} className='disabled:bg-green-200 disabled:cursor-no-drop bg-green-500 hover:bg-green-800 transition-all duration-300 w-15 h-15 rounded-lg cursor-pointer text-white' onClick={handleSubmit}>show</button>
       <button className='bg-red-500 hover:bg-red-800 transition-all duration-300 w-15 h-15 rounded-lg cursor-pointer text-white' onClick={resetEl}>reaet</button>
    </form>
-   {items.map((e)=>(
-  <div key={e.id} className={`todo flex justify-around items-center gap-[50px] w-[40%] py-2 rounded-lg hover:scale-[1.02] transition-scale duration-[.3s,.3s] ease-in-out ${e.bgChange ? 'bg-blue-500' : 'bg-emerald-800'}`}>
-    <div className={`flex gap-2 w-100 text-[20px] ${e.textChange ? 'text-black' : 'text-white'}`}>
-        {e.txt} {e.name} {e.message}
+{/* show */}
+   {items.map((item)=>(
+  <div key={item.id} className={`todo flex justify-around items-center gap-[50px] w-[40%] py-2 rounded-lg hover:scale-[1.02] transition-scale duration-[.3s,.3s] ease-in-out ${item.bgChange ? 'bg-blue-500' : 'bg-emerald-800'}`}>
+    <div className={`flex gap-2 w-100 text-[20px] ${item.textChange ? 'text-black' : 'text-white'}`}>
+        {item.txt} {item.name} {item.message}
     </div>
     <div className='flex gap-5'>
-      <button className='bg-green-500 hover:bg-green-700 transition-all duration-300 w-12 h-10 rounded-lg cursor-pointer text-white text-[12px]' onClick={() => bgColor(e.id)}>Bg Change</button>
-      <button className='bg-red-500 hover:bg-red-800 transition-all duration-300 w-12 h-10 rounded-lg cursor-pointer text-white text-[12px]' onClick={() => textColor(e.id)}>TXT Change</button>
+      <button className='bg-green-500 hover:bg-green-700 transition-all duration-300 w-12 h-10 rounded-lg cursor-pointer text-white text-[12px]' onClick={() => bgColor(item.id)}>Bg Change</button>
+      <button className='bg-red-500 hover:bg-red-800 transition-all duration-300 w-12 h-10 rounded-lg cursor-pointer text-white text-[12px]' onClick={() => textColor(item.id)}>TXT Change</button>
     </div>
   </div>
 ))}
